@@ -1,0 +1,130 @@
+.tx-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+}
+
+.tx-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tx-form-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+.tx-form-optional {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.tx-form-input {
+  padding: 11px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  color: var(--text);
+  background: var(--bg-input);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  width: 100%;
+  font-family: var(--font);
+}
+.tx-form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(91,142,247,.12);
+  background: var(--bg-card);
+}
+.tx-form-input--error { border-color: var(--danger) !important; }
+.tx-form-input--error:focus { box-shadow: 0 0 0 3px rgba(248,113,113,.12); }
+.tx-form-input::placeholder { color: var(--text-muted); }
+
+/* Select */
+select.tx-form-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%233d5272' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+select.tx-form-input option { background: var(--bg-card); }
+
+/* Textarea */
+.tx-form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.tx-form-error {
+  font-size: 0.8rem;
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Type toggle */
+.tx-type-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.tx-type-btn {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-input);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text-muted);
+  font-family: var(--font);
+}
+.tx-type-btn:hover:not(.tx-type-btn--active) {
+  border-color: var(--border-strong);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+}
+.tx-type-btn--expense.tx-type-btn--active {
+  border-color: rgba(248,113,113,.35);
+  background: rgba(248,113,113,.1);
+  color: var(--danger);
+}
+.tx-type-btn--income.tx-type-btn--active {
+  border-color: rgba(52,211,153,.35);
+  background: rgba(52,211,153,.1);
+  color: var(--success);
+}
+
+/* Row layout */
+.tx-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-md);
+}
+
+/* Amount prefix */
+.tx-amount-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tx-amount-prefix {
+  position: absolute;
+  left: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 0.9375rem;
+}
+.tx-form-input--amount { padding-left: 28px; }
+
+@media (max-width: 500px) {
+  .tx-form-row { grid-template-columns: 1fr; }
+}
